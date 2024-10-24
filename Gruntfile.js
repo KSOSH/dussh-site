@@ -18,7 +18,8 @@ module.exports = function(grunt) {
 		}
 		return hash;
 	};
-	
+
+    //"grunt-webfont": "^1.7.2",
 	var gc = {
 		fontvers: "1.0.0",
 		dev: "site/assets/templates/projectsoft",
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
 			"clean:all",
 			"concat",
 			"uglify",
-			"webfont",
+			//"webfont",
 			"ttf2woff",
 			"ttf2woff2",
 			"imagemin",
@@ -72,7 +73,7 @@ module.exports = function(grunt) {
 		],
 		fonts: [
 			"clean:all",
-			"webfont",
+			//"webfont",
 			"ttf2woff",
 			"ttf2woff2",
 			"less",
@@ -85,7 +86,7 @@ module.exports = function(grunt) {
 		],
 		glyph: [
 			"clean:all",
-			"webfont",
+			//"webfont",
 			"ttf2woff",
 			"ttf2woff2",
 			"less",
@@ -227,6 +228,9 @@ module.exports = function(grunt) {
 				files : {
 					'test/css/main.css' : [
 						'src/less/main.less'
+					],
+					'test/css/tinymce.css' : [
+						'src/less/tinymce.less'
 					]
 				}
 			}
@@ -240,8 +244,11 @@ module.exports = function(grunt) {
 			},
 			css: {
 				files: {
-					'test/css/prefix.main.css' : [
+					'test/css/main.css' : [
 						'test/css/main.css'
+					],
+					'test/css/tinymce.css' : [
+						'test/css/tinymce.css'
 					]
 				}
 			}
@@ -249,7 +256,8 @@ module.exports = function(grunt) {
 		group_css_media_queries: {
 			group: {
 				files: {
-					'test/css/media/main.css': ['test/css/prefix.main.css']
+					'test/css/main.css': ['test/css/main.css'],
+					'test/css/tinymce.css': ['test/css/tinymce.css']
 				}
 			}
 		},
@@ -272,16 +280,16 @@ module.exports = function(grunt) {
 						expand: true,
 						flatten : true,
 						src: [
-							'test/css/media/main.css'
+							'test/css/main.css'
 						],
-						dest: 'test/css/replace/',
+						dest: '<%= globalConfig.dev %>/css/',
 						filter: 'isFile'
 					},
 					{
 						expand: true,
 						flatten : true,
 						src: [
-							'test/css/media/main.css'
+							'test/css/tinymce.css'
 						],
 						dest: '<%= globalConfig.dev %>/css/',
 						filter: 'isFile'
@@ -296,7 +304,10 @@ module.exports = function(grunt) {
 			},
 			minify: {
 				files: {
-					'<%= globalConfig.dev %>/css/main.min.css' : ['test/css/replace/main.css']
+					'<%= globalConfig.dev %>/css/main.min.css' : ['<%= globalConfig.dev %>/css/main.css']
+				},
+				files: {
+					'<%= globalConfig.dev %>/css/tinymce.min.css' : ['<%= globalConfig.dev %>/css/tinymce.css']
 				}
 			}
 		},
