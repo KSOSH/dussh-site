@@ -11,32 +11,34 @@
 				</div>
 			</div>
 			<div class="row">[[DLCrumbs &showCurrent=`1`]]</div>
-			<div class="row">
-				<div class="container-fluid">
-					<h1>[*pagetitle*]</h1>
-					<div class="content hyphenation">[*content*]</div>
-					<div class="content hyphenation">[[PageBuilder]]</div>
-				</div>
-			</div>[[DocLister?
-			  &parents=`157`
-			  &display=`5`
-			  &tvList=`imageSoc, news_date`
-			  &tvPrefix=``
-			  &orderBy=`news_date DESC`
-			  &sortBy=`news_date`
-			  &sortDir=`DESC`
-			  &tvSortType=`TVDATETIME`
-			  &prepare=`\ProjectSoft\PrepareDL::prepareItem`
-			  &noneTPL=``
-			  &ownerTPL=`@CODE: <div class="row"><h2 class="news-title text-center container-fluid">Новости «ТОЧКА РОСТА»</h2><div class="container-fluid content news hyphenation">[+dl.wrap+]</div></div>`
-			  &tpl=`@FILE:projectsoft/tpl/news_tpl`
-			  &showParent=`0`
-			  &urlScheme=`full`
-			  &noneWrapOuter=`0`
-			]]
-			<div class="row">
-				<div class="container-fluid">
-					<p class="text-center"><a class="btn" href="[(site_url)][~157~]">Все новости</a></p>
+			<div id="page">
+				<div class="row">
+					<div class="container-fluid">
+						<h1>[*pagetitle*]</h1>
+						<div class="content hyphenation">[*content*]</div>
+						<div class="content hyphenation">[[PageBuilder]]</div>
+					</div>
+				</div>[[DocLister?
+				  &parents=`157`
+				  &display=`5`
+				  &tvList=`imageSoc, news_date`
+				  &tvPrefix=``
+				  &orderBy=`news_date DESC`
+				  &sortBy=`news_date`
+				  &sortDir=`DESC`
+				  &tvSortType=`TVDATETIME`
+				  &prepare=`\ProjectSoft\PrepareDL::prepareItem`
+				  &noneTPL=``
+				  &ownerTPL=`@CODE: <div class="row"><h2 class="news-title text-center container-fluid">Новости «ТОЧКА РОСТА»</h2><div class="container-fluid content news hyphenation">[+dl.wrap+]</div></div>`
+				  &tpl=`@FILE:projectsoft/tpl/news_tpl`
+				  &showParent=`0`
+				  &urlScheme=`full`
+				  &noneWrapOuter=`0`
+				]]
+				<div class="row">
+					<div class="container-fluid">
+						<p class="text-center"><a class="btn" href="[(site_url)][~157~]">Все новости</a></p>
+					</div>
 				</div>
 			</div>{{@FILE assets/templates/projectsoft/tpl/sites-link.html}}
 		</div>{{@FILE assets/templates/projectsoft/tpl/footer.html}}
